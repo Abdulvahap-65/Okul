@@ -1,0 +1,42 @@
+﻿@model Okul.Models.Ogrenci
+
+@{
+    ViewBag.Title = "Detaylar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ögrenci Detay</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Ad")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Soyad")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Bölüm")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Duzenle", new { id = Model.OgrenciNo }) |
+    @Html.ActionLink("Geri Dön", "Liste")
+</p>

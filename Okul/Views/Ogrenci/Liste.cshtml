@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Okul.Models.Ogrenci>
+
+@{
+    ViewBag.Title = "Liste";
+}
+
+<h2>Öğrenci Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Öğrenci Ekle", "Ekle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Adı")
+        </th>
+        <th>
+            @Html.DisplayName("Soyadı")
+
+        </th>
+        <th>
+            @Html.DisplayName("Bölüm")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bolum)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Duzenle", new { id=item.OgrenciNo }) |
+            @Html.ActionLink("Detaylar", "Detaylar", new { id=item.OgrenciNo }) |
+            @Html.ActionLink("Sil", "Sil", new { id=item.OgrenciNo })
+        </td>
+    </tr>
+}
+
+</table>
